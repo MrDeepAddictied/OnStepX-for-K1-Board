@@ -39,18 +39,18 @@ void gotoTile(String &data)
 {
   char temp[400] = "";
 
-  snprintf_P(temp, sizeof(temp), html_tile_beg, "22em", "15em", "Goto");
+  sprintf_P(temp, html_tile_beg, "22em", "15em", "Goto");
   data.concat(temp);
 
   data.concat(F("<div style='float: right; text-align: right;' id='gto_status' class='c'>"));
-  snprintf(temp, sizeof(temp), "%s || %c", status.inGoto ? L_SLEWING : L_INACTIVE, state.pierSideStr[0]);
+  sprintf(temp, "%s || %c", status.inGoto ? L_SLEWING : L_INACTIVE, state.pierSideStr[0]);
   data.concat(temp);
   data.concat(F("</div><br /><hr>"));
 
   data.concat(FPSTR(html_mountPositionLabels));
-  snprintf_P(temp, sizeof(temp), html_mountPositionAxis1, state.indexAzmStr, state.indexRaStr, state.targetRaStr);
+  sprintf_P(temp, html_mountPositionAxis1, state.indexAzmStr, state.indexRaStr, state.targetRaStr);
   data.concat(temp);
-  snprintf_P(temp, sizeof(temp), html_mountPositionAxis2, state.indexAltStr, state.indexDecStr, state.targetDecStr);
+  sprintf_P(temp, html_mountPositionAxis2, state.indexAltStr, state.indexDecStr, state.targetDecStr);
   data.concat(temp);
 
   www.sendContentAndClear(data);
@@ -63,11 +63,11 @@ void gotoTile(String &data)
   data.concat(F("<hr>"));
   www.sendContentAndClear(data);
 
-  snprintf_P(temp, sizeof(temp), html_collapsable_beg, L_CONTROLS "...");
+  sprintf_P(temp, html_collapsable_beg, L_CONTROLS "...");
   data.concat(temp);
 
   // Slew speed
-  snprintf_P(temp, sizeof(temp), html_slewSpeed, state.slewSpeedStr);
+  sprintf_P(temp, html_slewSpeed, state.slewSpeedStr);
   data.concat(temp);
   data.concat(FPSTR(html_slewSpeedSelect));
 
@@ -80,11 +80,11 @@ void gotoTile(String &data)
   {
     if (status.mountType == MT_ALTAZM) {
       data.concat(FPSTR(html_gotoMfNow));
-      snprintf_P(temp, sizeof(temp), html_gotoMfPause, L_ORIENTATION_CHANGE_PAUSE);
+      sprintf_P(temp, html_gotoMfPause, L_ORIENTATION_CHANGE_PAUSE);
       data.concat(temp);
     } else {
       data.concat(FPSTR(html_gotoMfAuto));
-      snprintf_P(temp, sizeof(temp), html_gotoMfPause, L_MERIDIAN_FLIP_PAUSE);
+      sprintf_P(temp, html_gotoMfPause, L_MERIDIAN_FLIP_PAUSE);
       data.concat(temp);
     }
 
@@ -97,10 +97,10 @@ void gotoTile(String &data)
     data.concat(F("<br />"));
 
     if (status.mountType == MT_ALTAZM) {
-      snprintf_P(temp, sizeof(temp), html_gotoPreferredPierSide1, L_ORIENTATION_CHANGE_PPS, L_NORMAL, L_ALTERNATE);
+      sprintf_P(temp, html_gotoPreferredPierSide1, L_ORIENTATION_CHANGE_PPS, L_NORMAL, L_ALTERNATE);
       data.concat(temp);
     } else {
-      snprintf_P(temp, sizeof(temp), html_gotoPreferredPierSide1, L_MERIDIAN_FLIP_PPS, L_EAST, L_WEST);
+      sprintf_P(temp, html_gotoPreferredPierSide1, L_MERIDIAN_FLIP_PPS, L_EAST, L_WEST);
       data.concat(temp);
     }
     www.sendContentAndClear(data);

@@ -54,7 +54,7 @@ void handleRoot()
   www.sendContentAndClear(data);
   data.concat(FPSTR(html_script_ajax));
   www.sendContentAndClear(data);
-  snprintf_P(temp, sizeof(temp), html_script_ajax_get, "index-ajax-get.txt");
+  sprintf_P(temp, html_script_ajax_get, "index-ajax-get.txt");
   data.concat(temp);
   www.sendContentAndClear(data);
 
@@ -85,7 +85,7 @@ void handleRoot()
     data.concat(F("<hr>"));
     if (numShown == 0) data.concat(F("<br />" L_ADV_SET_NO_EDIT "<br />"));
 
-    snprintf_P(temp, sizeof(temp), html_form_begin, "index.htm");
+    sprintf_P(temp, html_form_begin, "index.htm");
     data.concat(temp);
 
     data.concat(F("<br /><button name='advanced' type='submit' "));

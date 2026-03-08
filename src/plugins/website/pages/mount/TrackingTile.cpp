@@ -10,7 +10,7 @@ void trackingTile(String &data)
 {
   char temp[240] = "";
 
-  snprintf_P(temp, sizeof(temp), html_tile_beg, "22em", "15em", L_TRACKING);
+  sprintf_P(temp, html_tile_beg, "22em", "15em", L_TRACKING);
   data.concat(temp);
   data.concat(F("<div style='float: right; text-align: right;' id='track' class='c'>"));
   data.concat(state.trackStr);
@@ -21,10 +21,10 @@ void trackingTile(String &data)
   www.sendContentAndClear(data);
   data.concat(F("<hr>"));
 
-  snprintf_P(temp, sizeof(temp), html_collapsable_beg, L_CONTROLS "...");
+  sprintf_P(temp, html_collapsable_beg, L_CONTROLS "...");
   data.concat(temp);
 
-  snprintf_P(temp, sizeof(temp), html_form_begin, "mount.htm");
+  sprintf_P(temp, html_form_begin, "mount.htm");
   data.concat(temp);
   if (status.mountType != MT_ALTAZM || status.getVersionMajor() >= 10)
   {

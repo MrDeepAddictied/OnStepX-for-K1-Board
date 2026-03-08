@@ -10,7 +10,7 @@ void rotatorSlewingTile(String &data)
 {
   char temp[240] = "";
 
-  snprintf_P(temp, sizeof(temp), html_tile_beg, "22em", "13em", L_SLEWING);
+  sprintf_P(temp, html_tile_beg, "22em", "13em", L_SLEWING);
   data.concat(temp);
   data.concat(F("<div style='float: right; text-align: right;' id='rot_sta' class='c'>"));
   if (state.focuserSlewing) data.concat(L_ACTIVE); else data.concat(L_INACTIVE);
@@ -29,10 +29,10 @@ void rotatorSlewingTile(String &data)
   data.concat(F("<hr>"));
 
   if (status.getVersionMajor() >= 10) {
-    snprintf_P(temp, sizeof(temp), html_collapsable_beg, L_CONTROLS "...");
+    sprintf_P(temp, html_collapsable_beg, L_CONTROLS "...");
     data.concat(temp);
 
-    snprintf_P(temp, sizeof(temp), html_rotateSlewSpeed, state.rotateSlewSpeedStr);
+    sprintf_P(temp, html_rotateSlewSpeed, state.rotateSlewSpeedStr);
     data.concat(temp);
     data.concat(FPSTR(html_rotateGotoSelect));
 
@@ -91,7 +91,7 @@ extern void rotatorSlewingTileGet()
     {
       char temp[80], temp1[40];
       convert.doubleToDms(temp1, f, true, true, PM_HIGH);
-      snprintf(temp, sizeof(temp), ":rS%s#", temp1);
+      sprintf(temp, ":rS%s#", temp1);
       onStep.commandBool(temp);
     }
   }

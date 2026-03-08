@@ -152,7 +152,7 @@ bool OnStepCmd::commandBlind(const char* command) {
 bool OnStepCmd::commandEcho(const char* command) {
   char response[80] = "";
   char c[40] = "";
-  snprintf(c, sizeof(c), ":EC%s#", command);
+  sprintf(c, ":EC%s#", command);
   return processCommand(c, response, webTimeout);
 }
 

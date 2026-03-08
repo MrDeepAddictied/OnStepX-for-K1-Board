@@ -432,11 +432,11 @@
 #define L_SUBNET "サブネットマスク"
 #define L_NETWORK_CHA "チャンネル"
 #define L_NETWORK_EN_AP_MODE "アクセスポイントモードを有効化"
-#define L_NETWORK_OTA_TITLE "OTA SWS firmware update"
-#define L_NETWORK_EN_OTA "Enable OTA Mode"
-#define L_REBOOT_OTA "Reboot into OTA mode"
+
 #define L_NETWORK_CONFIG_SECURITY "ネットワーク設定セキュリティ"
 
+#define L_FIRMWARE_UPDATE "ファームウェアアップデート"
+#define L_TO_UPDATE_PAGE "アップデートページへ"
 
 #define L_NETWORK_AP "アクセスポイントモード"
 

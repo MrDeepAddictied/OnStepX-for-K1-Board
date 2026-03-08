@@ -54,7 +54,7 @@ void handleMount()
   }
 
   // scripts
-  snprintf_P(temp, sizeof(temp), html_script_ajax_get, "mount-ajax-get.txt");
+  sprintf_P(temp, html_script_ajax_get, "mount-ajax-get.txt");
   data.concat(temp);
   data.concat(FPSTR(html_script_ajax_shortcuts));
   data.concat(FPSTR(html_script_ajax_date_time_return));
